@@ -15,6 +15,9 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         FlashcardManager manager = new FlashcardManager();
         Statistics stats = new Statistics();
+        
+        System.out.println("Loading saved flashcards...");
+        FileHandler.loadCards(manager);
 
         int choice;
 
@@ -30,8 +33,16 @@ public class Main {
             System.out.println("8. Exit");
             System.out.print("Choice: ");
 
-            choice = scanner.nextInt();
-            scanner.nextLine(); // clear buffer
+            choice = -1;
+
+            if (scanner.hasNextInt()) {
+                choice = scanner.nextInt();
+                scanner.nextLine(); // clear buffer
+            } else {
+                System.out.println("Invalid input. Please enter a number.");
+                scanner.nextLine(); // clear bad input
+                continue;
+            }
 
             switch (choice) {
 
@@ -83,7 +94,8 @@ public class Main {
                     break;
 
                 case 8:
-                    System.out.println("Goodbye.");
+                    FileHandler.saveCards(manager);
+                    System.out.println("Flashcards saved. Goodbye.");
                     break;
 
                 default:
