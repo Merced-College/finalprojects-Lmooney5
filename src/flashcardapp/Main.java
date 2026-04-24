@@ -2,6 +2,12 @@ package flashcardapp;
 
 import java.util.Scanner;
 
+/*
+* Main class handles user interaction and program flow.
+* It displays a menu and connects all other classes together.
+* This class acts as the entry point of the program.
+*/
+
 public class Main {
 
 	public static void main(String[] args) {
