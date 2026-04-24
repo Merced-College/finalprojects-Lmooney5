@@ -47,4 +47,8 @@ public class FlashcardManager {
     public int getSize() {
         return cards.size();
     }
+    
+    public ArrayList<Flashcard> getAllCards() {
+        return cards;
+    }
 }
