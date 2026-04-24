@@ -3,16 +3,16 @@ package flashcardapp;
 import java.util.Scanner;
 
 /*
-* Main class handles user interaction and program flow.
-* It displays a menu and connects all other classes together.
-* This class acts as the entry point of the program.
-*/
+ * Main class handles user interaction and program flow.
+ * It displays a menu and connects all other classes together.
+ * This class acts as the entry point of the program.
+ */
 
 public class Main {
 
-	public static void main(String[] args) {
-		
-		Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
         FlashcardManager manager = new FlashcardManager();
         Statistics stats = new Statistics();
 
@@ -31,11 +31,12 @@ public class Main {
             System.out.print("Choice: ");
 
             choice = scanner.nextInt();
-            scanner.nextLine();
+            scanner.nextLine(); // clear buffer
 
             switch (choice) {
 
                 case 1:
+                    // Collects user input and creates a new flashcard object
                     System.out.print("Question: ");
                     String q = scanner.nextLine();
 
@@ -49,10 +50,12 @@ public class Main {
                     break;
 
                 case 2:
+                    // Displays all flashcards stored in the manager
                     manager.displayAllCards();
                     break;
 
                 case 3:
+                    // Removes a flashcard by user-selected index
                     System.out.print("Enter card number: ");
                     int index = scanner.nextInt();
                     scanner.nextLine();
@@ -60,18 +63,22 @@ public class Main {
                     break;
 
                 case 4:
+                    // Starts quiz mode using a random flashcard
                     QuizEngine.startQuiz(manager, scanner, stats);
                     break;
 
                 case 5:
+                    // Displays user performance statistics
                     stats.displayStats();
                     break;
 
                 case 6:
+                    // Saves flashcards to external file for persistence
                     FileHandler.saveCards(manager);
                     break;
 
                 case 7:
+                    // Loads flashcards from file into memory
                     FileHandler.loadCards(manager);
                     break;
 
@@ -87,5 +94,4 @@ public class Main {
 
         scanner.close();
     }
-
-	}
+}

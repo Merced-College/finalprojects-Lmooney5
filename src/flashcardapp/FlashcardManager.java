@@ -2,19 +2,26 @@ package flashcardapp;
 
 import java.util.ArrayList;
 
+/*
+ * FlashcardManager handles storage and management of all flashcards.
+ * It uses an ArrayList to dynamically store cards.
+ * This class controls adding, removing, displaying, and retrieving cards.
+ */
+
 public class FlashcardManager {
+
     private ArrayList<Flashcard> cards;
 
     public FlashcardManager() {
         cards = new ArrayList<>();
     }
 
-    // Add card
+    // Adds a new flashcard to the collection
     public void addCard(Flashcard card) {
         cards.add(card);
     }
 
-    // Remove card by index
+    // Removes a flashcard based on user-selected index
     public void removeCard(int index) {
         if (index >= 0 && index < cards.size()) {
             cards.remove(index);
@@ -23,7 +30,7 @@ public class FlashcardManager {
         }
     }
 
-    // Display all cards
+    // Displays all flashcards in the collection
     public void displayAllCards() {
         if (cards.isEmpty()) {
             System.out.println("No flashcards available.");
@@ -36,7 +43,7 @@ public class FlashcardManager {
         }
     }
 
-    // Get random card (for quiz later)
+    // Returns a random flashcard for quiz mode
     public Flashcard getRandomCard() {
         if (cards.isEmpty()) return null;
 
@@ -44,10 +51,12 @@ public class FlashcardManager {
         return cards.get(index);
     }
 
+    // Returns number of flashcards currently stored
     public int getSize() {
         return cards.size();
     }
-    
+
+    // Provides full access to all cards for file saving
     public ArrayList<Flashcard> getAllCards() {
         return cards;
     }
