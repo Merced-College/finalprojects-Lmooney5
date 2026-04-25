@@ -3,6 +3,11 @@ package flashcardapp;
 import java.util.Scanner;
 
 /*
+ * NOT ALL CODE IS MADE BY ME. I USED NO OUTSIDE HELP OTHER THAN GROK AND CHATGPT. 
+ * I ASKED THE AI TO GIVE ME RECOMMENDATIONS FOR MY CODE, AND HELP ME WITH STRUCTURE. 
+ */
+
+/*
  * Main class handles user interaction and program flow.
  * It displays a menu and connects all other classes together.
  * This class acts as the entry point of the program.
